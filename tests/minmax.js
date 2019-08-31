@@ -3,6 +3,7 @@
 QUnit.module('Тестируем функцию minmax', function () {
 	QUnit.test('minmax работает правильно на строках без чисел', function (assert) {
 		assert.deepEqual(minmax(''), [ undefined, undefined ], 'Особый случай, когда в строке нет чисел');
+		assert.deepEqual(minmax(' '), [ undefined, undefined ], 'Особый случай 2, когда в строке нет чисел');
 		assert.deepEqual(minmax('мама мыла раму'), [ undefined, undefined ]);
 	});
 
@@ -31,5 +32,6 @@ QUnit.module('Тестируем функцию minmax', function () {
 
 	QUnit.test('minmax игнорирует обычный текст', function (assert) {
 		assert.deepEqual(minmax('1, -5.8 или 10, хотя 34 + -5.3 и 73'), [ -5.8, 73 ]);
+		assert.deepEqual(minmax('11,2, 4.5 и -Infinity;2'), [ -Infinity, 11 ]);
 	});
 });
