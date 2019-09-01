@@ -39,6 +39,6 @@ QUnit.module('Тестируем функцию minmax', function () {
 		assert.deepEqual(minmax('1,1,5,-5'), [ -5, 5 ], 'Разделитель - запятая');
 		assert.deepEqual(minmax('1 3.5 2'), [ 1, 3.5 ], 'Разделитель - пробел');
 		assert.deepEqual(minmax('35678;123;1'), [ 1, 35678 ], 'Разделитель - точка с запятой');
-		assert.deepEqual(minmax('1e5, 123;45_-1 2'), [ -1, 1e5 ], 'Разные виды разделителей');
+		assert.deepEqual(minmax('1e5, 123;45 -1 2'), [ -1, 1e5 ], 'Разные виды разделителей');
 	});
 });
